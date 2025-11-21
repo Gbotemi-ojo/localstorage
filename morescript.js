@@ -3314,91 +3314,1526 @@ import "fmt"
 func PrintStr(s string) {
 	fmt.Print(s)
 }`);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
-localStorage.setItem("",``);
+localStorage.setItem("printrange",`package solutions
+
+import "github.com/01-edu/z01"
+
+func PrintRange(n, m int) {
+	if n < 0 && m < 0 || n > 9 && m > 9 {
+		z01.PrintRune('\n')
+		return
+	}
+	if n < 0 {
+		n = 0
+	} else if n > 9 {
+		n = 9
+	}
+	if m < 0 {
+		m = 0
+	} else if m > 9 {
+		m = 9
+	}
+	if n > m {
+		for i := n; i >= m; i-- {
+			z01.PrintRune(rune(i) + '0')
+			if i != m {
+				z01.PrintRune(' ')
+			}
+		}
+	} else {
+		for i := n; i <= m; i++ {
+			z01.PrintRune(rune(i) + '0')
+			if i != m {
+				z01.PrintRune(' ')
+			}
+		}
+	}
+	z01.PrintRune('\n')
+}`);
+localStorage.setItem("printnbrinorder",`package solutions
+
+import (
+	"fmt"
+	"sort"
+)
+
+func intToDigits(n int) (digits []int) {
+	for n > 0 {
+		if n == 0 {
+			digits = append(digits, 0)
+		} else {
+			digits = append(digits, n%10)
+		}
+		n /= 10
+	}
+	return
+}
+
+func PrintNbrInOrder(n int) {
+	if n == 0 {
+		fmt.Print("0")
+		return
+	}
+	digits := intToDigits(n)
+	sort.Ints(digits)
+	for _, i := range digits {
+		fmt.Printf("%c", rune(i)+'0')
+	}
+}`);
+localStorage.setItem("printrange",`package solutions
+
+import "github.com/01-edu/z01"
+
+func PrintRange(n, m int) {
+	if n < 0 && m < 0 || n > 9 && m > 9 {
+		z01.PrintRune('\n')
+		return
+	}
+	if n < 0 {
+		n = 0
+	} else if n > 9 {
+		n = 9
+	}
+	if m < 0 {
+		m = 0
+	} else if m > 9 {
+		m = 9
+	}
+	if n > m {
+		for i := n; i >= m; i-- {
+			z01.PrintRune(rune(i) + '0')
+			if i != m {
+				z01.PrintRune(' ')
+			}
+		}
+	} else {
+		for i := n; i <= m; i++ {
+			z01.PrintRune(rune(i) + '0')
+			if i != m {
+				z01.PrintRune(' ')
+			}
+		}
+	}
+	z01.PrintRune('\n')
+}`);
+localStorage.setItem("printmemory",`package solutions
+
+import (
+	"fmt"
+	"strings"
+)
+
+func PrintMemory(a [10]byte) {
+	str := ""
+	for i, nbr := range a {
+		fmt.Printf("%.2x", nbr)
+
+		if ((i+1)%4 == 0 && i != 0) || i == len(a)-1 {
+			fmt.Println()
+		} else {
+			fmt.Print(" ")
+		}
+
+		if nbr >= 33 && nbr <= 126 {
+			str += string(rune(nbr))
+		} else {
+			str += "."
+		}
+	}
+	fmt.Println(str + strings.Repeat(".", 10-len(a)))
+}`);
+localStorage.setItem("printifnot",`package solutions
+
+func PrintIfNot(arg string) string {
+	if len(arg) >= 3 {
+		return "Invalid Input\n"
+	} else {
+		return "G\n"
+	}
+}`);
+localStorage.setItem("printif",`package solutions
+
+func PrintIf(arg string) string {
+	if len(arg) != 0 && len(arg) < 3 {
+		return "Invalid Input\n"
+	}
+	return "G\n"
+}`);
+localStorage.setItem("printcombn",`package solutions
+
+import "fmt"
+
+func show(n int, table [9]int, tmax [9]int) {
+	i := 0
+	for i < n {
+		fmt.Print(table[i])
+		i++
+	}
+	if table[0] != tmax[0] {
+		fmt.Print(", ")
+	}
+}
+
+func printComb1() {
+	table := [9]int{0}
+	tmax := [9]int{9}
+	for table[0] <= tmax[0] {
+		show(1, table, tmax)
+		table[0]++
+	}
+}
+
+func PrintCombN(n int) {
+	table := [9]int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+	tmax := [9]int{}
+
+	if n == 1 {
+		printComb1()
+	} else {
+		i := n - 1
+		j := 9
+		for i >= 0 {
+			tmax[i] = j
+			i--
+			j--
+		}
+		i = n - 1
+		for table[0] < tmax[0] {
+			if table[i] != tmax[i] {
+				show(n, table, tmax)
+				table[i]++
+			}
+			if table[i] == tmax[i] {
+				if table[i-1] != tmax[i-1] {
+					show(n, table, tmax)
+					table[i-1]++
+					j = i
+					for j < n {
+						table[j] = table[j-1] + 1
+						j++
+					}
+					i = n - 1
+				}
+			}
+			for table[i] == tmax[i] && table[i-1] == tmax[i-1] && i > 1 {
+				i--
+			}
+		}
+		show(n, table, tmax)
+	}
+	fmt.Println()
+}`);
+localStorage.setItem("printcomb2",`package solutions
+
+import "fmt"
+
+func PrintComb2() {
+	for a := 0; a <= 98; a++ {
+		for b := a + 1; b <= 99; b++ {
+			fmt.Printf("%.2d %.2d", a, b)
+			if a != 98 || b != 99 {
+				fmt.Print(", ")
+			}
+		}
+	}
+	fmt.Println()
+}`);
+localStorage.setItem("printcomb",`package solutions
+
+import "fmt"
+
+func PrintComb() {
+	for i := '0'; i <= '7'; i++ {
+		for j := i + 1; j <= '8'; j++ {
+			for k := j + 1; k <= '9'; k++ {
+				fmt.Printf("%c%c%c", i, j, k)
+				if i < '7' {
+					fmt.Print(", ")
+				}
+			}
+		}
+	}
+	fmt.Println()
+}`);
+localStorage.setItem("popint",`package solutions
+
+func PopInt(ints []int) []int {
+	if len(ints) == 0 {
+		return ints
+	}
+	return ints[:len(ints)-1]
+}`);
+localStorage.setItem("podiumposition",`package solutions
+
+func PodiumPosition(podium [][]string) [][]string {
+	for i, j := 0, len(podium) - 1; i < j; i, j = i + 1, j - 1 {
+        podium[i], podium[j] = podium[j], podium[i]
+    }
+	return podium
+}`);
+localStorage.setItem("passwordenthropy",`package solutions
+
+import (
+	"math"
+	"unicode"
+)
+
+func Entropy(password string) float64 {
+	const (
+		lowerBit = 1 << iota
+		upperBit
+		digitBit
+		specialBit
+	)
+
+	used := 0
+	poolSize := 0.0
+
+	for _, r := range password {
+		if used&lowerBit == 0 && unicode.IsLower(r) {
+			used |= lowerBit
+			poolSize += 26
+		} else if used&upperBit == 0 && unicode.IsUpper(r) {
+			used |= upperBit
+			poolSize += 26
+		} else if used&digitBit == 0 && unicode.IsDigit(r) {
+			used |= digitBit
+			poolSize += 10
+		} else if used&specialBit == 0 && !unicode.IsLetter(r) && !unicode.IsDigit(r) {
+			used |= specialBit
+			poolSize += 32
+		}
+
+		if used == lowerBit|upperBit|digitBit|specialBit {
+			break
+		}
+	}
+
+	if poolSize == 0 {
+		return 0
+	}
+
+	return float64(len(password)) * math.Log2(poolSize)
+}`);
+localStorage.setItem("oddlength",`package solutions
+
+func Oddlength(strings []string) []string {
+	var newSlice []string
+	for _, str := range strings {
+		if len(str)%2 == 1 {
+			newSlice = append(newSlice, str)
+		}
+	}
+	return newSlice
+}`);
+localStorage.setItem("numofdigits",`package solutions
+
+func Numofdigits(n int) int {
+	var count int = 0
+	for n > 0 {
+		n = n / 10
+		count++
+	}
+	return count
+}`);
+localStorage.setItem("nrune",`package solutions
+
+func NRune(s string, n int) rune {
+	if n > len(s) || n < 1 {
+		return 0
+	}
+	runes := []rune(s)
+	return runes[n-1]
+}`);
+localStorage.setItem("notdecimal",`package solutions
+
+import (
+	"math"
+	"strconv"
+)
+
+func NotDecimal(dec string) string {
+	j := -1
+	n := 0
+	if len(dec) == 0 {
+		return "\n"
+	}
+	for i := 0; i < len(dec); i++ {
+		if j == -1 && dec[i] == '.' {
+			j++
+		} else if j == 0 {
+			n++
+		}
+	}
+	s, err := strconv.ParseFloat(dec, 64)
+	if err == nil {
+		return strconv.Itoa(int(s*math.Pow(10, float64(n)))) + "\n"
+	}
+	return (dec + "\n")
+}`);
+localStorage.setItem("multorsum",`package solutions
+
+func MultOrSum(ints []int, init int) int {
+	if len(ints) == 0 {
+		return 0
+	}
+	result := init
+	for _, num := range ints {
+		if num%2 == 0 {
+			result += num
+			continue
+		}
+		result *= num
+	}
+	return result
+}`);
+localStorage.setItem("maxwordcountn",`package solutions
+
+import (
+	"sort"
+	"strings"
+)
+
+type keyValue struct {
+	Key   string
+	Value int
+}
+
+func MaxWordCountN(text string, n int) map[string]int {
+	wordOccurences := make(map[string]int)
+	for _, word := range strings.Split(text, " ") {
+		wordOccurences[word]++
+	}
+
+	var keyValSlice []keyValue
+	for k, v := range wordOccurences {
+		keyValSlice = append(keyValSlice, keyValue{k, v})
+	}
+
+	sort.Slice(keyValSlice, func(i, j int) bool {
+		if keyValSlice[i].Value == keyValSlice[j].Value {
+			return keyValSlice[i].Key < keyValSlice[j].Key
+		} else {
+			return keyValSlice[i].Value > keyValSlice[j].Value
+		}
+	})
+
+	nMaxWordOccurences := make(map[string]int)
+	for _, kv := range keyValSlice[0:n] {
+		nMaxWordOccurences[kv.Key] = kv.Value
+	}
+	return nMaxWordOccurences
+}`);
+localStorage.setItem("max",`package solutions
+
+import "sort"
+
+func Max(a []int) int {
+	if len(a) == 0 {
+		return 0
+	}
+	sort.Ints(a)
+	return a[len(a)-1]
+}`);
+localStorage.setItem("map",`package solutions
+
+func Map(f func(int) bool, a []int) (result []bool) {
+	for _, el := range a {
+		result = append(result, f(el))
+	}
+	return
+}`);
+localStorage.setItem("makerange",`package solutions
+
+func MakeRange(min, max int) []int {
+	size := max - min
+
+	if size <= 0 {
+		return nil
+	}
+	answer := make([]int, size)
+	for i := range answer {
+		answer[i] = min
+		min++
+	}
+	return answer
+}`);
+localStorage.setItem("longestword",`package solutions
+
+import (
+	"strings"
+	"unicode"
+)
+
+func isValidWord(word string) bool {
+	if word == "" {
+		return false
+	}
+
+	last := rune(word[len(word)-1])
+	if strings.ContainsRune(".,!?;:", last) {
+		word = word[:len(word)-1]
+		if word == "" {
+			return false
+		}
+	}
+
+	firstRune := []rune(word)[0]
+	if !unicode.IsLetter(firstRune) {
+		return false
+	}
+
+	for _, r := range word {
+		if !unicode.IsLetter(r) {
+			return false
+		}
+	}
+
+	return true
+}
+
+func LongestWord(s string) string {
+	words := strings.Fields(s)
+	longest := ""
+
+	for _, w := range words {
+		if isValidWord(w) {
+			if len([]rune(w)) > len([]rune(longest)) {
+				longest = w
+			}
+		}
+	}
+
+	return longest
+}`);
+localStorage.setItem("loafofbread",`package solutions
+
+import "strings"
+
+func LoafOfBread(str string) string {
+	if str == "" {
+		return "\n"
+	}
+	if len(str) < 5 {
+		return "Invalid Output\n"
+	}
+	var _str strings.Builder
+	j := 0
+	for i := 0; i < len(str); i++ {
+		if j < 5 && rune(str[i]) == ' ' {
+			continue
+		}
+		if j == 5 {
+			if i != len(str)-1 && str[i+1] == ' ' {
+				continue
+			}
+			if i == len(str)-1 {
+				break
+			}
+			_str.WriteRune(' ')
+			j = 0
+			continue
+		}
+		_str.WriteRune(rune(str[i]))
+		j++
+	}
+	_str.WriteRune(rune('\n'))
+	return (_str.String())
+}`);
+localStorage.setItem("listsort",`package solutions
+
+func ListSort(l *NodeI) *NodeI {
+	head := l
+	if head == nil {
+		return nil
+	}
+	head.Next = ListSort(head.Next)
+
+	if head.Next != nil && head.Data > head.Next.Data {
+		head = move(head)
+	}
+	return head
+}
+
+func move(l *NodeI) *NodeI {
+	p := l
+	n := l.Next
+	ret := n
+
+	for n != nil && l.Data > n.Data {
+		p = n
+		n = n.Next
+	}
+	p.Next = l
+	l.Next = n
+	return ret
+}`);
+localStorage.setItem("listsize",`package solutions
+
+func ListSize(l *List) int {
+	count := 0
+	iterator := l.Head
+	for iterator != nil {
+		count++
+		iterator = iterator.Next
+	}
+	return count
+}`);
+localStorage.setItem("listreverse",`package solutions
+
+func ListReverse(l *List) {
+	current := l.Head
+	var prev *NodeL
+	prev = nil
+
+	for current != nil {
+		next := current.Next
+		current.Next = prev
+		prev = current
+		current = next
+	}
+	l.Head = prev
+}`);
+localStorage.setItem("listremoveif",`package solutions
+
+// removes all elements that are equal to the data_ref
+func ListRemoveIf(l *List, data_ref interface{}) {
+	temp := l.Head
+	prev := l.Head
+
+	for temp != nil && temp.Data == data_ref {
+		l.Head = temp.Next
+		temp = l.Head
+	}
+	for temp != nil {
+		if temp.Data != data_ref {
+			prev = temp
+		}
+		prev.Next = temp.Next
+		temp = prev.Next
+	}
+}`);
+localStorage.setItem("listpushfront",`package solutions
+
+// inserts node on the first position of the list
+func ListPushFront(l *List, data interface{}) {
+	n := &NodeL{Data: data}
+
+	if l.Head == nil {
+		l.Head = n
+		return
+	}
+
+	n.Next = l.Head
+	l.Head = n
+}`);
+localStorage.setItem("listpushback",`package solutions
+
+type NodeL struct {
+	Data interface{}
+	Next *NodeL
+}
+
+type List struct {
+	Head *NodeL
+	Tail *NodeL
+}
+
+func ListPushBack(l *List, data interface{}) {
+	n := &NodeL{Data: data}
+
+	if l.Head == nil {
+		l.Head = n
+	} else {
+		l.Tail.Next = n
+	}
+	l.Tail = n
+}`);
+localStorage.setItem("listmerge",`package solutions
+
+// merges the 2 lists in one (in the end of the first list)
+func ListMerge(l1 *List, l2 *List) {
+	if l1.Head == nil {
+		l1.Head, l1.Tail = l2.Head, l2.Tail
+		return
+	}
+	l1.Tail.Next = l2.Head
+}`);
+localStorage.setItem("listlast",`package solutions
+
+// gives the last element of the list
+func ListLast(l *List) interface{} {
+	if l.Head == nil {
+		return nil
+	}
+	for l.Head != nil {
+		if l.Head.Next == nil {
+			return l.Head.Data
+		}
+		l.Head = l.Head.Next
+	}
+	return l.Head.Data
+}`);
+localStorage.setItem("listforeachif",`package solutions
+
+// compare each element of the linked list to see if it is a String
+func IsPositiveNode(node *NodeL) bool {
+	switch node.Data.(type) {
+	case int, float32, float64, byte:
+		return node.Data.(int) > 0
+	default:
+		return false
+	}
+}
+
+func IsAlNode(node *NodeL) bool {
+	switch node.Data.(type) {
+	case int, float32, float64, byte:
+		return false
+	default:
+		return true
+	}
+}
+
+// applies the function f on each string if the boolean function comp returns true
+func ListForEachIf(l *List, f func(*NodeL), comp func(*NodeL) bool) {
+	it := l.Head
+	for it != nil {
+		if comp(it) {
+			f(it)
+		}
+		it = it.Next
+	}
+}`);
+localStorage.setItem("listforeach",`package solutions
+
+// applies a function in argument to each element of the linked list
+func ListForEach(l *List, f func(*NodeL)) {
+	it := l.Head
+	for it != nil {
+		f(it)
+		it = it.Next
+	}
+}
+
+func Add2_node(node *NodeL) {
+	switch node.Data.(type) {
+	case int:
+		node.Data = node.Data.(int) + 2
+	case string:
+		node.Data = node.Data.(string) + "2"
+	}
+}
+
+func Subtract3_node(node *NodeL) {
+	switch node.Data.(type) {
+	case int:
+		node.Data = node.Data.(int) - 3
+	case string:
+		node.Data = node.Data.(string) + "-3"
+	}
+}`);
+localStorage.setItem("listfind",`package solutions
+
+// finds the element and returns the first data from the node that is a string
+func ListFind(l *List, ref interface{}, comp func(a, b interface{}) bool) *interface{} {
+	iterator := l.Head
+	for iterator != nil {
+		if comp(iterator.Data, ref) {
+			return &iterator.Data
+		}
+
+		iterator = iterator.Next
+	}
+	return nil
+}
+
+// defines for two elements the equality criteria
+func CompStr(a, b interface{}) bool {
+	return a == b
+}`);
+localStorage.setItem("listclear",`package solutions
+
+func ListClear(l *List) {
+	temp := l.Head
+	var next *NodeL
+	for temp != nil {
+		next = temp.Next
+		temp = nil
+		temp = next
+	}
+
+	l.Head = nil
+}`);
+localStorage.setItem("listat",`package solutions
+
+// returs the node in a given position
+func ListAt(l *NodeL, nbr int) *NodeL {
+	index := 0
+	count := 0
+	head := l
+
+	for head != nil {
+		index++
+		head = head.Next
+	}
+	if nbr <= index {
+		for l != nil {
+			if count == nbr {
+				return l
+			}
+			count++
+			l = l.Next
+		}
+	}
+	return nil
+}`);
+localStorage.setItem("leapyear",`package solutions
+
+func LeapYear(year int) bool {
+	if year <= 0 {
+		return false
+	}
+	if year%4 == 0 {
+		if year%100 == 0 {
+			return year%400 == 0
+		}
+		return true
+	}
+	return false
+}`);
+localStorage.setItem("lcm",`package solutions
+
+func gcd(first, second int) int {
+	if second == 0 {
+		return first
+	}
+	return gcd(second, first%second)
+}
+
+func Lcm(first, second int) int {
+	return first / gcd(second, first%second) * second
+}`);
+localStorage.setItem("lastword",`package solutions
+
+import (
+	"strings"
+)
+
+func LastWord(s string) string {
+	words := strings.Fields(s)
+	if len(words) > 0 {
+		return words[len(words)-1] + "\n"
+	}
+	return "\n"
+}`);
+localStorage.setItem("lastrune",`package solutions
+
+func LastRune(s string) rune {
+	runes := []rune(s)
+	index := len(runes) - 1
+	return runes[index]
+}`);
+localStorage.setItem("jumpover",`package solutions
+
+import "strings"
+
+func JumpOver(arg string) string {
+	if arg == "" || len(arg) < 3 {
+		return "\n"
+	}
+	var str strings.Builder
+	for i := 0; i < len(arg); i++ {
+		if i != 0 {
+			j := i + 1
+			if j%3 == 0 {
+				str.WriteRune(rune(arg[i]))
+			}
+		}
+	}
+	str.WriteRune(rune('\n'))
+	return (str.String())
+}`);
+localStorage.setItem("join",`package solutions
+
+import "strings"
+
+var Join = strings.Join`);
+localStorage.setItem("itoabase",`package solutions
+
+import (
+	"strconv"
+	"strings"
+)
+
+func ItoaBase(value, base int) string {
+	if base < 2 || base > 16 {
+		return ""
+	}
+
+	return strings.ToUpper(strconv.FormatInt(int64(value), base))
+}`);
+localStorage.setItem("itoa",`package solutions
+
+import "strconv"
+
+var Itoa = strconv.Itoa`);
+localStorage.setItem("iterativepower",`package solutions
+
+import "strconv"
+
+var Itoa = strconv.Itoa`);
+localStorage.setItem("iterativefactorial",`package solutions
+
+func IterativeFactorial(nb int) int {
+	limit := 20
+	if nb < 0 || nb > limit {
+		return 0
+	}
+	if nb == 0 {
+		return 1
+	}
+	return nb * IterativeFactorial(nb-1)
+}`);
+localStorage.setItem("isupper",`package solutions
+
+import "github.com/01-edu/go-tests/lib/is"
+
+var IsUpper = is.Upper`);
+localStorage.setItem("issquare",`package solutions
+
+func IsSquare(number int, square int) bool {
+	if number < 0 || square < 0 {
+		return false
+	}
+	return number*number == square
+}`);
+localStorage.setItem("issorted",`package solutions
+
+func IsSorted(f func(int, int) int, a []int) bool {
+	ascendingOrdered := true
+	descendingOrdered := true
+
+	for i := 1; i < len(a); i++ {
+		if f(a[i-1], a[i]) < 0 {
+			ascendingOrdered = false
+		}
+	}
+
+	for i := 1; i < len(a); i++ {
+		if f(a[i-1], a[i]) > 0 {
+			descendingOrdered = false
+		}
+	}
+
+	return ascendingOrdered || descendingOrdered
+}`);
+localStorage.setItem("issamestring",`package solutions
+
+import "unicode"
+
+func getAlphabetIndex(c byte) int {
+	if c >= 'a' && c <= 'z' {
+		return int(c - 'a')
+	}
+	if c >= 'A' && c <= 'Z' {
+		return int(c - 'A')
+	}
+	return -1
+}
+
+func IsSameString(s1, s2 string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+	i := 0
+	for i < len(s1) && i < len(s2) {
+		if (unicode.IsLetter(rune(s1[i])) && unicode.IsLetter(rune(s2[i]))) &&
+			(getAlphabetIndex(s1[i]) != getAlphabetIndex(s2[i])) {
+			return false
+		} else if !(unicode.IsLetter(rune(s1[i])) && unicode.IsLetter(rune(s2[i]))) && s1[i] != s2[i] {
+			return false
+		}
+		i++
+	}
+	if i < len(s1) || i < len(s2) {
+		return false
+	}
+	return true
+}`);
+localStorage.setItem("isprintable",`package solutions
+
+import "unicode"
+
+func IsPrintable(s string) bool {
+	for _, r := range s {
+		if !unicode.IsPrint(r) {
+			return false
+		}
+	}
+	return true
+}`);
+localStorage.setItem("isprime",`package solutions
+
+import "github.com/01-edu/go-tests/lib/is"
+
+var IsPrime = is.Prime`);
+localStorage.setItem("isnumeric",`package solutions
+
+import "github.com/01-edu/go-tests/lib/is"
+
+var IsNumeric = is.Digit`);
+localStorage.setItem("isnegative",`package solutions
+
+import "fmt"
+
+func IsNegative(n int) {
+	if n < 0 {
+		fmt.Println("T")
+	} else {
+		fmt.Println("F")
+	}
+}`);
+localStorage.setItem("ismultiple",`package solutions
+
+func IsMultiple(num int) bool {
+	if num > 0 && (num%3 == 0 || num%7 == 0) {
+		return true
+	}
+	return false
+}`);
+localStorage.setItem("islower",`package solutions
+
+import "github.com/01-edu/go-tests/lib/is"
+
+var IsLower = is.Lower`);
+localStorage.setItem("iscapitalized",`package solutions
+
+func IsCapitalized(s string) bool {
+	if len(s) == 0 {
+		return false
+	}
+
+	for i := 0; i < len(s); i++ {
+		if s[i] >= 'a' && s[i] <= 'z' && i != 0 && s[i-1] == ' ' {
+			return false
+		}
+	}
+	return !(s[0] >= 'a' && s[0] <= 'z')
+}`);
+localStorage.setItem("isalpha",`package solutions
+
+import "unicode"
+
+func IsAlpha(s string) bool {
+	for _, r := range s {
+		if !unicode.IsDigit(r) && !unicode.Is(unicode.Latin, r) {
+			return false
+		}
+	}
+	return true
+}`);
+localStorage.setItem("index",`package solutions
+
+import "strings"
+
+var Index = strings.Index`);
+localStorage.setItem("hashcode",`package solutions
+
+func HashCode(dec string) string {
+	size := len(dec)
+	hashed := ""
+	for _, char := range dec {
+		hash := (int(char) + size) % 127
+		if hash < 32 || hash > 126 {
+			hash += 33
+		}
+		hashed += string(hash)
+	}
+	return hashed
+}`);
+localStorage.setItem("halfslice",`package solutions
+
+func HalfSlice(slice []int) []int {
+	var result []int
+	size := len(slice) / 2
+
+	if len(slice)%2 != 0 {
+		size = len(slice)/2 + 1
+	}
+	for i := 0; i < size; i++ {
+		result = append(result, slice[i])
+	}
+	return result
+}`);
+localStorage.setItem("gcd",`package solutions
+
+func Gcd(a, b uint) uint {
+	for a != b {
+		if a > b {
+			a -= b
+		} else {
+			b -= a
+		}
+	}
+	return a
+}`);
+localStorage.setItem("fromto",`package solutions
+
+import "strconv"
+
+func FromTo(from, to int) string {
+	result := ""
+
+	if from > 99 || from < 0 || to > 99 || to < 0 {
+		return "Invalid\n"
+	} else if from == to && from < 10 {
+		return "0" + strconv.Itoa(from) + "\n"
+	}
+	if from > to {
+		for i := from; i >= to; i-- {
+			if i < 10 {
+				result += "0"
+			}
+			result += strconv.Itoa(i)
+			if i-1 >= to {
+				result += ", "
+			}
+		}
+		return result + "\n"
+	}
+	for i := from; i <= to; i++ {
+		if i < 10 {
+			result += "0"
+		}
+		result += strconv.Itoa(i)
+		if i+1 <= to {
+			result += ", "
+		}
+	}
+	return result + "\n"
+}`);
+localStorage.setItem("foreach",`package solutions
+
+func ForEach(f func(int), a []int) {
+	for _, el := range a {
+		f(el)
+	}
+}`);
+localStorage.setItem("fooddeliverytime",`package solutions
+
+type food struct {
+	preptime int
+}
+
+func FoodDeliveryTime(order string) int {
+	burger := food{
+		preptime: 15,
+	}
+
+	chips := food{
+		preptime: 10,
+	}
+
+	nuggets := food{
+		preptime: 12,
+	}
+
+	if order == "burger" {
+		return burger.preptime
+	} else if order == "chips" {
+		return chips.preptime
+	} else if order == "nuggets" {
+		return nuggets.preptime
+	} else {
+		return 404
+	}
+}`);
+localStorage.setItem("foldit",`package solutions
+
+import "fmt"
+
+func FoldInt(f func(int, int) int, a []int, n int) {
+	result := n
+	for _, v := range a {
+		result = f(result, v)
+	}
+	fmt.Println(result)
+}`);
+localStorage.setItem("firstword",`package solutions
+
+import "strings"
+
+func FirstWord(s string) string {
+	words := strings.Fields(s)
+	res := "\n"
+	if len(words) > 0 {
+		res = words[0] + res
+	}
+	return res
+}`);
+localStorage.setItem("firstrune",`package solutions
+
+func FirstRune(s string) rune {
+	runes := []rune(s)
+	return runes[0]
+}`);
+localStorage.setItem("findprevprime",`package solutions
+
+import "github.com/01-edu/go-tests/lib/is"
+
+func FindPrevPrime(nb int) int {
+	if nb < 2 {
+		return 0
+	}
+	if is.Prime(nb) {
+		return nb
+	}
+	return FindPrevPrime(nb - 1)
+}`);
+localStorage.setItem("findnextprime",`package solutions
+
+import "github.com/01-edu/go-tests/lib/is"
+
+func FindNextPrime(nb int) int {
+	if is.Prime(nb) {
+		return nb
+	}
+	return FindNextPrime(nb + 1)
+}`);
+localStorage.setItem("findmissingnumber",`package solutions
+
+func FindMissingNumber(nums []int) int {
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i] > nums[j] {
+				nums[i], nums[j] = nums[j], nums[i]
+			}
+		}
+	}
+	for i := 0; i < len(nums); i++ {
+		if i+1 < len(nums) && nums[i]+1 != nums[i+1] {
+			return nums[i] + 1
+		}
+	}
+	return -1
+}`);
+localStorage.setItem("fifthandskip",`package solutions
+
+import "strings"
+
+func FifthAndSkip(str string) string {
+	if str == "" {
+		return "\n"
+	}
+	if len(str) < 5 {
+		return "Invalid Input\n"
+	}
+	s := strings.ReplaceAll(str, " ", "")
+	var _str strings.Builder
+	j := 0
+	for _, char := range s {
+		if j == 5 {
+			_str.WriteRune(rune(' '))
+			j = 0
+		} else {
+			_str.WriteRune(rune(char))
+			j++
+		}
+	}
+	_str.WriteRune('\n')
+	return _str.String()
+}`);
+localStorage.setItem("fibonacci",`package solutions
+
+func Fibonacci(i int) int {
+	if i < 0 {
+		return -1
+	}
+	if i == 0 {
+		return 0
+	}
+	if i == 1 {
+		return 1
+	}
+	return Fibonacci(i-1) + Fibonacci(i-2)
+}`);
+localStorage.setItem("evenlength",`package solutions
+
+func EvenLength(strings []string) []string {
+	var newSlice []string
+	for _, str := range strings {
+		if len(str)%2 == 0 {
+			newSlice = append(newSlice, str)
+		}
+	}
+	return newSlice
+}`);
+localStorage.setItem("eightqueens",`package solutions
+
+import "fmt"
+
+const size = 8
+
+// board is a chessboard composed of boolean squares, a true square means a queen is on it
+// a false square means it is a free square
+var board [size][size]bool
+
+// goodDirection check that there is no queen on the segment that starts at (x, y)
+// coordinates, points into the direction vector (vx, vy) and ends at the edge of the board
+func goodDirection(x, y, vx, vy int) bool {
+	// x and y are still on board
+	for 0 <= x && x < size &&
+		0 <= y && y < size {
+		if board[x][y] {
+			// Not a good line : the square is already occupied
+			return false
+		}
+		x += vx // Move x in the right direction
+		y += vy // Move y in the right direction
+	}
+	// All clear
+	return true
+}
+
+// goodSquare makes all the necessary line checks for the queens movements
+func goodSquare(x, y int) bool {
+	return goodDirection(x, y, +0, -1) &&
+		goodDirection(x, y, +1, -1) &&
+		goodDirection(x, y, +1, +0) &&
+		goodDirection(x, y, +1, +1) &&
+		goodDirection(x, y, +0, +1) &&
+		goodDirection(x, y, -1, +1) &&
+		goodDirection(x, y, -1, +0) &&
+		goodDirection(x, y, -1, -1)
+}
+
+func printQueens() {
+	for x := 0; x < size; x++ {
+		for y := 0; y < size; y++ {
+			if board[x][y] {
+				// We have found a queen, let's print her y
+				fmt.Printf("%c", rune(y)+'1')
+			}
+		}
+	}
+	fmt.Println()
+}
+
+// tryX tries, for a given x (column) to find a y (row) so that the queen on (x, y) is a part
+// of the solution to the problem
+func tryX(x int) {
+	for y := 0; y < size; y++ {
+		if goodSquare(x, y) {
+			// Since the square is good for the queen, let's put one on it:
+			board[x][y] = true
+
+			if x == size-1 {
+				// x is the biggest possible x, it means that we just placed the last
+				// queen on the board, so the solution is complete and we can print it
+				printQueens()
+			} else {
+				// let's try to put another queen on the next empty x (column)
+				tryX(x + 1)
+			}
+
+			// remove the queen of the board, to try other y values
+			board[x][y] = false
+		}
+	}
+}
+
+func EightQueens() {
+	// try the first column
+	tryX(0)
+}`);
+localStorage.setItem("divisors",`package solutions
+
+func Divisors(n int) int {
+	var count int = 0
+	if n > 0 {
+		for i := 1; i <= n; i++ {
+			if n%i == 0 {
+				count++
+			}
+		}
+	}
+	return count
+}`);
+localStorage.setItem("digitlen",`package solutions
+
+func DigitLen(n, base int) int {
+
+	if base < 2 || base > 36 {
+		return -1
+	}
+
+	if n < 0 {
+		n = -n
+	}
+
+	count := 0
+	for n > 0 {
+		n /= base
+		count++
+	}
+	return count
+}`);
+localStorage.setItem("descendcomb",`package solutions
+
+import "github.com/01-edu/z01"
+
+func printInteger(a int) {
+	secondDigits := (a % 10)
+	firstDigits := (a / 10)
+
+	z01.PrintRune(rune(firstDigits) + 48)
+	z01.PrintRune(rune(secondDigits) + 48)
+}
+
+func DescendComb() {
+	for i := 99; i >= 0; i-- {
+		for j := i - 1; j >= 0; j-- {
+			printInteger(i)
+			z01.PrintRune(' ')
+			printInteger(j)
+
+			if i == 1 && j == 0 {
+				break
+			}
+			z01.PrintRune(',')
+			z01.PrintRune(' ')
+		}
+	}
+}`);
+localStorage.setItem("descendappendrange",`package solutions
+
+func DescendAppendRange(max, min int) []int {
+	answer := []int{}
+	if max <= min {
+		return []int{}
+	} else {
+		for i := max ; i > min; i-- {
+			answer = append(answer, i)
+		}
+	}
+	return answer
+}`);
+localStorage.setItem("delete",`package solutions
+
+func Delete(ints []int, position int) []int {
+	if position > len(ints)-1 {
+		return ints
+	}
+	result := []int{}
+	for i, integer := range ints {
+		if i == position-1 {
+			continue
+		}
+		result = append(result, integer)
+	}
+	return result
+}`);
+localStorage.setItem("dealapackofcards",`package solutions
+
+import "fmt"
+
+func DealAPackOfCards(deck []int) {
+	for _, v := range deck {
+		if v == 1 {
+			fmt.Printf("Player 1: %v, %v, %v", deck[0], deck[1], deck[2])
+			fmt.Println()
+		} else if v == 3 {
+			fmt.Printf("Player 2: %v, %v, %v", deck[3], deck[4], deck[5])
+			fmt.Println()
+		} else if v == 6 {
+			fmt.Printf("Player 3: %v, %v, %v", deck[6], deck[7], deck[8])
+			fmt.Println()
+		} else if v == 9 {
+			fmt.Printf("Player 4: %v, %v, %v", deck[9], deck[10], deck[11])
+			fmt.Println()
+		}
+	}
+}`);
+localStorage.setItem("countstars",`package solutions
+
+import "strconv"
+
+func CountStars(num int) string {
+	res := ""
+	star := " star"
+	stars := " stars"
+	dots := "..."
+	if num <= 0 {
+		return "No stars"
+	}
+	if num == 1 {
+		return strconv.Itoa(1) + star
+	}
+	for i := 1; i <= num; i++ {
+		if i == 1 {
+			res = res + strconv.Itoa(i) + star + dots
+		} else if i != num {
+			res = res + strconv.Itoa(i) + stars + dots
+		} else {
+			res = res + strconv.Itoa(i) + stars
+		}
+	}
+	return res
+}`);
+localStorage.setItem("countrepeats",`package solutions
+
+import (
+	"strconv"
+)
+
+func CountRepeats(s string) string {
+	if s == "" {
+		return s
+	}
+
+	var result string
+	var counter = 1
+
+	for i := 0; i < len(s); i++ {
+		if i+1 < len(s) && string(s[i]) == string(s[i+1]) {
+			counter++
+		} else {
+			result += string(s[i])
+			if counter > 1 {
+				result += strconv.Itoa(counter)
+			}
+			counter = 1
+		}
+	}
+	return result
+}`);
+localStorage.setItem("countnegative",`package solutions
+
+func CountNegative(numbers []int) int {
+	count := 0
+	if len(numbers) == 0 {
+		return count
+	}
+	for _, number := range numbers {
+		if number < 0 {
+			count++
+		}
+	}
+	return count
+}`);
+localStorage.setItem("countif",`package solutions
+
+func CountIf(f func(string) bool, a []string) int {
+	counter := 0
+	for _, el := range a {
+		if f(el) {
+			counter++
+		}
+	}
+
+	return counter
+}`);
 localStorage.setItem("",``);
 localStorage.setItem("",``);
 localStorage.setItem("",``);
